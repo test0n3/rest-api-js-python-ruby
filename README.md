@@ -9,6 +9,9 @@
 **objective:** 
 - get acquainted with good practices in REST API development with JS, Python and Ruby.   
 
+**Demo objective:**
+Application will be a CrossFit Training Application, will provide CRUD for the app. Providing *Workouts*, registering *Records* and *Members*
+
 ## JavaScript
 file structure:
 ```
