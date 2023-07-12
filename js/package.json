@@ -1,0 +1,32 @@
+{
+  "name": "crossfit-wod-api",
+  "version": "0.0.1",
+  "description": "REST API service for Crossfit Training Application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/test0n3/rest-api-js-python-ruby.git"
+  },
+  "keywords": [
+    "restapi",
+    "backend",
+    "javascript",
+    "crossfit",
+    "demo"
+  ],
+  "author": "test0n3",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/test0n3/rest-api-js-python-ruby/issues"
+  },
+  "homepage": "https://github.com/test0n3/rest-api-js-python-ruby#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
