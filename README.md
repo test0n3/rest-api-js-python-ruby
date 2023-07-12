@@ -6,9 +6,22 @@
 - provide similar solution using Python lang.   
 - provide similar solution using Ruby lang.   
 
-**Objective:** get acquainted with good practices in REST API development   
+**objective:** 
+- get acquainted with good practices in REST API development with JS, Python and Ruby.   
 
 ## JavaScript
+file structure:
+```
+src/
+  |-controllers/
+  |-database/
+  |-services/
+  |-v1/
+  |  |-routes
+  |     |-index.js
+  |-index.js
+  ```
+
 to run the project, use:
 ```bash
 node run dev
