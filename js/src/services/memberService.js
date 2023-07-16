@@ -1,8 +1,12 @@
 const Member = require("../database/Member");
 
 const getAllMembers = () => {
-  const allMembers = Member.getAllMembers();
-  return allMembers;
+  try {
+    const allMembers = Member.getAllMembers();
+    return allMembers;
+  } catch (error) {
+    throw error;
+  }
 };
 
 const getOneMember = (memberId) => {
