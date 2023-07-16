@@ -6,8 +6,24 @@ const getAllMembers = (req, res) => {
 };
 
 const getOneMember = (req, res) => {
-  const member = memberService.getOneMember();
-  res.send("Get an existing member");
+  const {
+    params: { memberId },
+  } = req;
+  if (!memberId) {
+    res.status(400).send({
+      status: "FAILED",
+      data: { error: "Parameter 'memberId' can not be empty" },
+    });
+  }
+
+  try {
+    const member = memberService.getOneMember(memberId);
+    res.send({ status: "OK", data: member });
+  } catch (error) {
+    res
+      .status(error?.status || 500)
+      .send({ status: "FAILED", data: { error: error?.message || error } });
+  }
 };
 
 const createNewMember = (req, res) => {
