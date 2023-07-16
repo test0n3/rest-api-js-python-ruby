@@ -1,13 +1,29 @@
-const recordService = require("../services/workoutService");
+const recordService = require("../services/recordService");
 
 const getAllRecords = (req, res) => {
-  const allWorkouts = recordService.getAllWorkouts();
-  res.send({ status: "OK", data: allWorkouts });
+  const allRecords = recordService.getAllRecords();
+  res.send({ status: "OK", data: allRecords });
 };
 
 const getOneRecord = (req, res) => {
-  const record = recordService.getOneWorkout();
-  res.send("Get an existing record");
+  const {
+    params: { recordId },
+  } = req;
+  if (!recordId) {
+    res.status(400).send({
+      status: "FAILED",
+      data: { error: "Parameter 'recordId' can not be empty" },
+    });
+  }
+
+  try {
+    const record = recordService.getOneRecord(recordId);
+    res.send({ status: "OK", data: record });
+  } catch (error) {
+    res
+      .status(error?.status || 500)
+      .send({ status: "FAILED", data: { error: error?.message || error } });
+  }
 };
 
 const createNewRecord = (req, res) => {
