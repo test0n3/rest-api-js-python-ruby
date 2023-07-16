@@ -1,8 +1,12 @@
 const Record = require("../database/Record");
 
 const getAllRecords = () => {
-  const allRecords = Record.getAllRecords();
-  return allRecords;
+  try {
+    const allRecords = Record.getAllRecords();
+    return allRecords;
+  } catch (error) {
+    throw error;
+  }
 };
 
 const getOneRecord = (recordId) => {

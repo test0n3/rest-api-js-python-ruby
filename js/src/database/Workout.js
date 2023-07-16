@@ -1,18 +1,28 @@
 const DB = require("./db.json");
 
 const getAllWorkouts = () => {
-  return DB.workouts;
+  try {
+    const workouts = DB.workouts;
+    // console.log("workouts:", workouts, "size:", workouts.length);
+    return workouts;
+  } catch (error) {
+    throw { status: 500, message: error };
+  }
 };
 
 const getOneWorkout = (workoutId) => {
-  const workout = DB.workouts.find((workout) => workoutId == workout.id);
-  if (!workout) {
-    throw {
-      status: 404,
-      message: `Can't find workout with the id '${workoutId}'`,
-    };
+  try {
+    const workout = DB.workouts.find((workout) => workoutId == workout.id);
+    if (!workout) {
+      throw {
+        status: 404,
+        message: `Can't find workout with the id '${workoutId}'`,
+      };
+    }
+    return workout;
+  } catch (error) {
+    throw { status: error?.status || 500, message: error?.message || error };
   }
-  return workout;
 };
 
 const CreateNewWorkout = () => {};
