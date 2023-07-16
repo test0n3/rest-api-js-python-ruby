@@ -5,7 +5,14 @@ const getAllRecords = () => {
   return allRecords;
 };
 
-const getOneRecord = () => {};
+const getOneRecord = (recordId) => {
+  try {
+    const record = Record.getOneRecord(recordId);
+    return record;
+  } catch (error) {
+    throw error;
+  }
+};
 
 const createNewRecord = () => {};
 
