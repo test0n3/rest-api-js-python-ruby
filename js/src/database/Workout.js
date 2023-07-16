@@ -8,7 +8,7 @@ const getOneWorkout = (workoutId) => {
   const workout = DB.workouts.find((workout) => workoutId == workout.id);
   if (!workout) {
     throw {
-      status: 400,
+      status: 404,
       message: `Can't find workout with the id '${workoutId}'`,
     };
   }
