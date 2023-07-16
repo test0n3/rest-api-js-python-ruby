@@ -1,8 +1,14 @@
 const recordService = require("../services/recordService");
 
 const getAllRecords = (req, res) => {
-  const allRecords = recordService.getAllRecords();
-  res.send({ status: "OK", data: allRecords });
+  try {
+    const allRecords = recordService.getAllRecords();
+    res.send({ status: "OK", data: allRecords });
+  } catch (error) {
+    res
+      .status(error?.status || 500)
+      .send({ status: "FAILED", data: { error: error?.message || error } });
+  }
 };
 
 const getOneRecord = (req, res) => {
